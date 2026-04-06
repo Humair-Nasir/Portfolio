@@ -1,0 +1,1475 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Muhammad Humair | Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --background: 11 14 22;
+        --surface-container-lowest: 0 0 0;
+        --surface-container-low: 16 19 29;
+        --surface-container: 22 25 36;
+        --surface-container-high: 28 31 43;
+        --surface-container-highest: 34 37 50;
+        --primary: 127 175 255;
+        --primary-dim: 0 115 224;
+        --secondary: 147 146 255;
+        --tertiary: 104 211 255;
+        --on-primary: 0 46 96;
+        --on-secondary: 14 0 120;
+        --on-surface: 233 234 247;
+        --on-surface-variant: 169 170 182;
+        --outline-variant: 69 71 82;
+      }
+      html {
+        color-scheme: dark;
+      }
+      html.light {
+        color-scheme: light;
+        --background: 244 247 252;
+        --surface-container-lowest: 255 255 255;
+        --surface-container-low: 255 255 255;
+        --surface-container: 247 249 252;
+        --surface-container-high: 237 242 249;
+        --surface-container-highest: 226 233 244;
+        --primary: 29 78 216;
+        --primary-dim: 30 64 175;
+        --secondary: 99 102 241;
+        --tertiary: 8 145 178;
+        --on-primary: 255 255 255;
+        --on-secondary: 255 255 255;
+        --on-surface: 15 23 42;
+        --on-surface-variant: 71 85 105;
+        --outline-variant: 203 213 225;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: rgb(var(--background));
+        color: rgb(var(--on-surface));
+        transition:
+          background-color 250ms ease,
+          color 250ms ease;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--background));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--surface-container-high));
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(var(--primary));
+      }
+      .glass-panel {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .text-glow {
+        text-shadow: 0 0 15px rgba(127, 175, 255, 0.4);
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .skill-nav-button {
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(var(--outline-variant), 0.18);
+        background: rgb(var(--surface-container-low));
+        color: rgb(var(--on-surface-variant));
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease,
+          border-color 180ms ease;
+      }
+      .skill-nav-button:hover {
+        transform: translateY(-1px);
+        background: rgb(var(--surface-container-high));
+        color: rgb(var(--primary));
+        border-color: rgba(var(--primary), 0.24);
+      }
+      .skill-nav-symbol {
+        font-size: 1.15rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .skill-carousel-track {
+        transition: transform 700ms ease;
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          var storedTheme = localStorage.getItem("portfolio-theme");
+          var prefersLight =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: light)").matches;
+          var theme = storedTheme || (prefersLight ? "light" : "dark");
+
+          document.documentElement.classList.remove("dark", "light");
+          document.documentElement.classList.add(theme);
+        } catch (error) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "rgb(var(--background) / <alpha-value>)",
+              surface: "rgb(var(--background) / <alpha-value>)",
+              "surface-container-lowest":
+                "rgb(var(--surface-container-lowest) / <alpha-value>)",
+              "surface-container-low":
+                "rgb(var(--surface-container-low) / <alpha-value>)",
+              "surface-container":
+                "rgb(var(--surface-container) / <alpha-value>)",
+              "surface-container-high":
+                "rgb(var(--surface-container-high) / <alpha-value>)",
+              "surface-container-highest":
+                "rgb(var(--surface-container-highest) / <alpha-value>)",
+              "surface-bright":
+                "rgb(var(--surface-container-highest) / <alpha-value>)",
+              primary: "rgb(var(--primary) / <alpha-value>)",
+              "primary-dim": "rgb(var(--primary-dim) / <alpha-value>)",
+              secondary: "rgb(var(--secondary) / <alpha-value>)",
+              tertiary: "rgb(var(--tertiary) / <alpha-value>)",
+              "on-primary": "rgb(var(--on-primary) / <alpha-value>)",
+              "on-secondary": "rgb(var(--on-secondary) / <alpha-value>)",
+              "on-surface": "rgb(var(--on-surface) / <alpha-value>)",
+              "on-surface-variant":
+                "rgb(var(--on-surface-variant) / <alpha-value>)",
+              "outline-variant": "rgb(var(--outline-variant) / <alpha-value>)",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Plus Jakarta Sans"],
+              body: ["Plus Jakarta Sans"],
+              label: ["Plus Jakarta Sans"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background text-on-surface selection:bg-primary/30 selection:text-primary scroll-smooth"
+  >
+    <!-- Top Navigation Shell -->
+    <nav
+      class="sticky top-0 w-full z-50 bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant/10 shadow-[0_0_32px_rgba(127,175,255,0.08)]"
+    >
+      <div class="px-5 sm:px-8 py-4 max-w-7xl mx-auto">
+        <div class="flex justify-between items-center gap-4">
+          <span class="text-2xl font-black tracking-tighter text-primary"
+            >Humair.</span
+          >
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-primary border-b-2 border-primary pb-1 transition-all"
+              href="#home"
+              >Home</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              href="#about"
+              >About</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              href="#skills"
+              >Skills</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              href="#projects"
+              >Projects</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              href="#contact"
+              >Contact</a
+            >
+          </div>
+          <div class="hidden md:flex items-center gap-4">
+            <button
+              aria-label="Switch theme"
+              aria-pressed="false"
+              class="p-2 rounded-lg hover:bg-primary/10 transition-all text-on-surface-variant"
+              data-theme-toggle
+              type="button"
+            >
+              <span class="material-symbols-outlined" data-theme-icon
+                >dark_mode</span
+              >
+            </button>
+            <a
+              class="inline-flex items-center px-5 py-2.5 bg-primary text-on-primary text-sm font-bold rounded-lg hover:scale-95 duration-200 transition-all shadow-[0_0_20px_rgba(127,175,255,0.3)]"
+              href="assets/Muhammad Humair Nasir Resume Full Stack.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Download CV
+            </a>
+          </div>
+          <button
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Open navigation menu"
+            class="md:hidden p-2 rounded-lg hover:bg-primary/10 transition-all text-on-surface-variant"
+            id="mobile-menu-toggle"
+            type="button"
+          >
+            <span class="material-symbols-outlined" id="mobile-menu-icon"
+              >menu</span
+            >
+          </button>
+        </div>
+        <div
+          class="md:hidden hidden mt-4 rounded-2xl border border-outline-variant/10 bg-surface-container p-5 shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
+          id="mobile-menu"
+        >
+          <div
+            class="flex items-center justify-between gap-4 pb-4 border-b border-outline-variant/10"
+          >
+            <div>
+              <p class="text-lg font-bold text-on-surface">Humair.</p>
+              <!-- <p class="text-xs uppercase tracking-[0.3em] text-on-surface-variant">
+                Navigation
+              </p> -->
+            </div>
+            <button
+              aria-label="Switch theme"
+              aria-pressed="false"
+              class="p-2 rounded-lg hover:bg-primary/10 transition-all text-on-surface-variant"
+              data-theme-toggle
+              type="button"
+            >
+              <span class="material-symbols-outlined" data-theme-icon
+                >dark_mode</span
+              >
+            </button>
+          </div>
+          <div class="flex flex-col gap-3 pt-4">
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-primary"
+              data-mobile-link
+              href="#home"
+              >Home</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              data-mobile-link
+              href="#about"
+              >About</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              data-mobile-link
+              href="#skills"
+              >Skills</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              data-mobile-link
+              href="#projects"
+              >Projects</a
+            >
+            <a
+              class="font-plus-jakarta text-sm tracking-tight font-medium uppercase text-on-surface-variant hover:text-primary transition-colors"
+              data-mobile-link
+              href="#contact"
+              >Contact</a
+            >
+            <a
+              class="mt-2 inline-flex items-center justify-center px-5 py-3 bg-primary text-on-primary text-sm font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(127,175,255,0.3)]"
+              href="assets/Muhammad Humair Nasir Resume Full Stack.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-[921px] flex items-center pt-20 px-8 overflow-hidden"
+        id="home"
+      >
+        <!-- Decorative Architectural Background Elements -->
+        <div
+          class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/4"
+        ></div>
+        <div
+          class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+        >
+          <div class="order-2 lg:order-1 space-y-8">
+            <div
+              class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-low rounded-full border border-outline-variant/15"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-tertiary animate-pulse"
+              ></span>
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                >Available for New Projects</span
+              >
+            </div>
+            <div class="space-y-4">
+              <h1
+                class="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-tight"
+              >
+                Muhammad <br />
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                  >Humair Nasir</span
+                >
+              </h1>
+              <p
+                class="text-lg md:text-2xl font-medium text-on-surface-variant leading-relaxed"
+              >
+                Full-Stack Developer (MERN | Next.js | PostgreSQL | Firebase) •
+                Problem Solver
+              </p>
+              <p
+                class="text-on-surface-variant max-w-lg leading-relaxed text-lg"
+              >
+                Crafting high-performance web applications and intelligent
+                digital solutions with modern technologies. Specialized in
+                building end-to-end scalable systems that deliver exceptional
+                user experiences. Based in Lahore, Pakistan — the heart of
+                Pakistan's tech ecosystem.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a
+                class="px-8 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-bold rounded-lg shadow-[0_0_32px_rgba(127,175,255,0.2)] hover:scale-95 transition-transform duration-300"
+                href="#projects"
+              >
+                View My Projects
+              </a>
+              <a
+                class="px-8 py-4 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-surface-container-highest transition-colors duration-300"
+                href="#contact"
+              >
+                Let's Connect
+              </a>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div class="relative w-72 h-96 md:w-80 md:h-[450px]">
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent rounded-[160px] blur-2xl"
+              ></div>
+              <div
+                class="relative w-full h-full rounded-[160px] border-2 border-primary/30 p-4 overflow-hidden group"
+              >
+                <div
+                  class="w-full h-full rounded-[140px] overflow-hidden bg-surface-container-low"
+                >
+                  <img
+                    alt="Muhammad Humair Nasir"
+                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    data-alt="Portrait of Muhammad Humair Nasir"
+                    src="assets/Humair.jpg"
+                  />
+                </div>
+              </div>
+              <!-- Floating Tech Icons -->
+              <div
+                class="absolute -top-4 -right-4 w-16 h-16 bg-surface-container-highest rounded-2xl flex items-center justify-center shadow-2xl border border-outline-variant/20 animate-bounce transition-all"
+              >
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >code</span
+                >
+              </div>
+              <div
+                class="absolute bottom-12 -left-8 w-16 h-16 bg-surface-container-highest rounded-2xl flex items-center justify-center shadow-2xl border border-outline-variant/20 animate-pulse"
+              >
+                <span class="material-symbols-outlined text-secondary text-3xl"
+                  >terminal</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="py-20 px-8 bg-surface-container-low/30" id="about">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            <div class="lg:col-span-1 space-y-6">
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-3"
+              >
+                <span class="w-8 h-px bg-primary/30"></span> Profile
+              </h2>
+              <h3 class="text-4xl font-bold text-on-surface leading-tight">
+                Engineering Ideas into Reality
+              </h3>
+              <div
+                class="flex items-center gap-3 p-4 bg-surface-container-low rounded-xl border border-outline-variant/10"
+              >
+                <span class="material-symbols-outlined text-tertiary"
+                  >location_on</span
+                >
+                <span class="text-on-surface-variant font-medium"
+                  >Lahore, Pakistan</span
+                >
+              </div>
+            </div>
+            <div class="lg:col-span-2 space-y-8">
+              <p
+                class="text-xl text-on-surface-variant leading-relaxed font-light"
+              >
+                I'm a full-stack developer focused on building scalable,
+                user-centric web applications. I follow a "Blueprint"
+                approach-designing architecture and user experience before
+                writing code to create clean, maintainable solutions. I enjoy
+                combining strong backend systems with polished interfaces to
+                solve real-world problems.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div
+                  class="p-6 bg-surface-container-low rounded-xl hover:bg-surface-container-high transition-colors group"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl text-primary mb-4 block group-hover:scale-110 transition-transform"
+                    >school</span
+                  >
+                  <h4 class="text-lg font-bold mb-2">Education</h4>
+                  <p class="text-sm text-on-surface-variant">
+                    BS in Computer Science<br />University Of Education, Lahore
+                  </p>
+                </div>
+                <div
+                  class="p-6 bg-surface-container-low rounded-xl hover:bg-surface-container-high transition-colors group"
+                >
+                  <span
+                    class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform"
+                    >workspace_premium</span
+                  >
+                  <h4 class="text-lg font-bold mb-2">Experience</h4>
+                  <p class="text-sm text-on-surface-variant">
+                    Full-Stack Developer<br />1+ Years
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills Section -->
+      <section class="py-20 px-8 overflow-hidden" id="skills">
+        <div class="max-w-7xl mx-auto space-y-16">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-6"
+          >
+            <div class="space-y-4">
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-3"
+              >
+                <span class="w-8 h-px bg-primary/30"></span> Mastery
+              </h2>
+              <h3 class="text-4xl font-bold text-on-surface">
+                Technical Arsenal
+              </h3>
+            </div>
+          </div>
+          <!-- Skill Categories -->
+          <div class="space-y-14">
+            <div class="space-y-8" data-skill-carousel>
+              <span
+                class="text-sm md:text-lg font-semibold uppercase tracking-[0.28em] md:tracking-[0.34em] text-on-surface-variant/70 block text-center"
+                >Frontend Development</span
+              >
+              <div
+                class="w-full md:w-[78vw] max-w-[1240px] mx-auto flex items-center gap-2 md:gap-4"
+              >
+                <button
+                  aria-label="Show previous frontend skills"
+                  class="skill-nav-button shrink-0"
+                  data-skill-prev
+                  type="button"
+                >
+                  <span class="skill-nav-symbol">&lt;</span>
+                </button>
+                <div class="flex-1 overflow-hidden" data-skill-viewport>
+                  <div
+                    class="skill-carousel-track flex gap-2 md:gap-4 xl:gap-6"
+                    data-skill-track
+                  >
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-primary drop-shadow-[0_0_8px_rgba(127,175,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="36.4"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >90%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-primary transition-colors"
+                      >
+                        React.js / Next.js
+                      </p>
+                    </div>
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-secondary drop-shadow-[0_0_8px_rgba(147,146,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="54.6"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >85%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-secondary transition-colors"
+                      >
+                        Tailwind CSS
+                      </p>
+                    </div>
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-tertiary drop-shadow-[0_0_8px_rgba(104,211,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="72.8"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >80%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-tertiary transition-colors"
+                      >
+                        TypeScript
+                      </p>
+                    </div>
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-tertiary drop-shadow-[0_0_8px_rgba(104,211,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="54.6"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >85%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-tertiary transition-colors"
+                      >
+                        JavaScript
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  aria-label="Show next frontend skills"
+                  class="skill-nav-button shrink-0"
+                  data-skill-next
+                  type="button"
+                >
+                  <span class="skill-nav-symbol">&gt;</span>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-8" data-skill-carousel>
+              <span
+                class="text-sm md:text-lg font-semibold uppercase tracking-[0.28em] md:tracking-[0.34em] text-on-surface-variant/70 block text-center"
+                >Backend &amp; Cloud</span
+              >
+              <div
+                class="w-full md:w-[78vw] max-w-[1240px] mx-auto flex items-center gap-2 md:gap-4"
+              >
+                <button
+                  aria-label="Show previous backend skills"
+                  class="skill-nav-button shrink-0"
+                  data-skill-prev
+                  type="button"
+                >
+                  <span class="skill-nav-symbol">&lt;</span>
+                </button>
+                <div class="flex-1 overflow-hidden" data-skill-viewport>
+                  <div
+                    class="skill-carousel-track flex gap-2 md:gap-4 xl:gap-6"
+                    data-skill-track
+                  >
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-primary drop-shadow-[0_0_8px_rgba(127,175,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="54.6"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >85%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-primary transition-colors"
+                      >
+                        Node.js / Express
+                      </p>
+                    </div>
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-primary drop-shadow-[0_0_8px_rgba(127,175,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="72.8"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >80%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-primary transition-colors"
+                      >
+                        Firebase
+                      </p>
+                    </div>
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-secondary drop-shadow-[0_0_8px_rgba(147,146,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="36.4"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >90%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-secondary transition-colors"
+                      >
+                        PostgreSQL
+                      </p>
+                    </div>
+                    <div
+                      class="w-1/2 lg:w-1/3 flex-none px-2 md:px-4 group"
+                      data-skill-slide
+                    >
+                      <div
+                        class="relative w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-full h-full transform -rotate-90"
+                          viewBox="0 0 128 128"
+                        >
+                          <circle
+                            class="text-surface-container-high"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-width="4"
+                          ></circle>
+                          <circle
+                            class="text-tertiary drop-shadow-[0_0_8px_rgba(104,211,255,0.6)]"
+                            cx="64"
+                            cy="64"
+                            fill="transparent"
+                            r="58"
+                            stroke="currentColor"
+                            stroke-dasharray="364.4"
+                            stroke-dashoffset="54.6"
+                            stroke-width="4"
+                          ></circle>
+                        </svg>
+                        <span
+                          class="absolute inset-0 flex items-center justify-center text-xl md:text-2xl font-bold"
+                          >85%</span
+                        >
+                      </div>
+                      <p
+                        class="text-center mt-6 font-bold text-on-surface-variant group-hover:text-tertiary transition-colors"
+                      >
+                        MongoDB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  aria-label="Show next backend skills"
+                  class="skill-nav-button shrink-0"
+                  data-skill-next
+                  type="button"
+                >
+                  <span class="skill-nav-symbol">&gt;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section class="py-20 px-8 bg-surface-container-low/20" id="projects">
+        <div class="max-w-7xl mx-auto space-y-12">
+          <div class="space-y-4">
+            <div class="space-y-4">
+              <h2
+                class="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-3"
+              >
+                <span class="w-8 h-px bg-primary/30"></span> Portfolio
+              </h2>
+              <h3 class="text-4xl font-bold text-on-surface">Selected Works</h3>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300"
+            >
+              <div class="aspect-video w-full overflow-hidden">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Slack reminder system web app dashboard"
+                  src="assets/Slack-reminder-system.jpg"
+                />
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-on-surface">
+                  Slack Reminder System
+                </h4>
+                <p
+                  class="text-on-surface-variant text-sm leading-relaxed line-clamp-2"
+                >
+                  Schedule and send Slack reminders automatically with a clean
+                  web workflow built for teams and recurring follow-ups.
+                </p>
+                <div class="pt-4 flex items-center justify-between">
+                  <a
+                    class="text-primary text-sm font-bold inline-flex items-center gap-2 group-hover:underline"
+                    href="https://slack-reminder-nextjs.vercel.app/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Live Demo
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300"
+            >
+              <div class="aspect-video w-full overflow-hidden">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Image search application interface"
+                  src="assets/Image Search App.jpg"
+                />
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-on-surface">
+                  Image Search App
+                </h4>
+                <p
+                  class="text-on-surface-variant text-sm leading-relaxed line-clamp-2"
+                >
+                  JavaScript image search app using the Unsplash API to fetch,
+                  parse, and display results from keyword-based searches.
+                </p>
+                <div class="pt-4 flex items-center justify-between">
+                  <a
+                    class="text-primary text-sm font-bold inline-flex items-center gap-2 group-hover:underline"
+                    href="https://humair-nasir.github.io/Image-Search-App/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Live Demo
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300"
+            >
+              <div class="aspect-video w-full overflow-hidden">
+                <img
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Product search bar web app interface"
+                  src="assets/Product Search Bar.jpg"
+                />
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-on-surface">
+                  Product Search Bar
+                </h4>
+                <p
+                  class="text-on-surface-variant text-sm leading-relaxed line-clamp-2"
+                >
+                  Fast JavaScript search interface for browsing product data
+                  with dynamic filtering and responsive result updates.
+                </p>
+                <div class="pt-4 flex items-center justify-between">
+                  <a
+                    class="text-primary text-sm font-bold inline-flex items-center gap-2 group-hover:underline"
+                    href="https://humair-nasir.github.io/Product-Search-Bar/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Live Demo
+                    <span class="material-symbols-outlined text-sm"
+                      >open_in_new</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section class="py-20 px-8" id="contact">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h2
+                  class="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-3"
+                >
+                  <span class="w-8 h-px bg-primary/30"></span> Connection
+                </h2>
+                <h3 class="text-4xl font-bold text-on-surface">
+                  Let's build something exceptional together.
+                </h3>
+                <p class="text-on-surface-variant text-lg max-w-md">
+                  Currently accepting new projects and collaboration
+                  opportunities. Reach out and let's start the conversation.
+                </p>
+              </div>
+              <div class="space-y-6">
+                <div class="flex items-center gap-4 group">
+                  <div
+                    class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all"
+                  >
+                    <span class="material-symbols-outlined">mail</span>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs text-on-surface-variant uppercase font-bold tracking-widest"
+                    >
+                      Email Me
+                    </p>
+                    <a
+                      class="text-on-surface font-semibold hover:text-primary transition-colors"
+                      href="mailto:humairj165@gmail.com"
+                      >humairj165@gmail.com</a
+                    >
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 group">
+                  <div
+                    class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all"
+                  >
+                    <span class="material-symbols-outlined">share</span>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs text-on-surface-variant uppercase font-bold tracking-widest"
+                    >
+                      Social Presence
+                    </p>
+                    <div class="flex gap-4 mt-1">
+                      <a
+                        class="text-on-surface-variant hover:text-primary transition-colors"
+                        href="https://www.linkedin.com/in/humairj"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        >LinkedIn</a
+                      >
+                      <a
+                        class="text-on-surface-variant hover:text-primary transition-colors"
+                        href="https://github.com/Humair-Nasir"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        >GitHub</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Map -->
+              <div
+                class="w-full h-48 rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/10"
+              >
+                <div
+                  class="w-full h-full grayscale opacity-50 contrast-125"
+                  data-alt="Stylized dark minimalist city map of Lahore showing urban grid lines with primary blue accents"
+                  data-location="Lahore"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB8Rke_uDpNXPmwCBOzTW8RexUJquS4r8-WvYDlXY_nnYveUrvfQk7ntAtpa_rsACcxPwvILLsf48v2R6n6dz-1cAuL3n5V34H295rAevnpUacZbaGvw6pXD__co1kEEglP4vVp38T7smsorNTrfvPpdQLONU5p97aQQMbOBgq1WwmOkbUBB8dOp1BV21PDSssRFzQbFMNogQbXuBaXq0hC3jgZJvTg3HdhkpnxyPiAacnb7sFUzP4kVwdsryhmvzEqkRZROd_zoy05&quot;);
+                  "
+                ></div>
+              </div>
+            </div>
+            <div
+              class="bg-surface-container-low p-8 md:p-12 rounded-2xl border border-outline-variant/10 shadow-2xl"
+            >
+              <form
+                action="https://docs.google.com/forms/d/e/1FAIpQLSd8EUz6z6kQU1j2d0N5no-u3dYGNMToXkn160NHcz_Tc7fvAQ/formResponse"
+                class="space-y-6"
+                data-contact-form
+                method="POST"
+                target="contact-form-target"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label
+                      class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                      >Full Name</label
+                    >
+                    <input
+                      autocomplete="name"
+                      class="w-full bg-surface-container-lowest border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all"
+                      name="entry.1626974456"
+                      placeholder="Humair Nasir"
+                      required
+                      type="text"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                      >Email Address</label
+                    >
+                    <input
+                      autocomplete="email"
+                      class="w-full bg-surface-container-lowest border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all"
+                      name="entry.1611692059"
+                      placeholder="humairj165@gmail.com"
+                      required
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <label
+                    class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                    >Subject</label
+                  >
+                  <input
+                    class="w-full bg-surface-container-lowest border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all"
+                    name="entry.829634913"
+                    placeholder="Project Inquiry"
+                    required
+                    type="text"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label
+                    class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                    >Message</label
+                  >
+                  <textarea
+                    class="w-full bg-surface-container-lowest border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary transition-all"
+                    name="entry.1947356161"
+                    placeholder="Tell me about your project..."
+                    required
+                    rows="4"
+                  ></textarea>
+                </div>
+                <p
+                  class="hidden text-sm text-primary font-medium"
+                  data-contact-success
+                >
+                  Message sent successfully. I will get back to you soon.
+                </p>
+                <button
+                  class="w-full py-4 bg-primary text-on-primary font-bold rounded-lg hover:shadow-[0_0_24px_rgba(127,175,255,0.4)] transition-all"
+                  data-contact-submit
+                  type="submit"
+                >
+                  Send Message
+                </button>
+              </form>
+              <iframe
+                class="hidden"
+                name="contact-form-target"
+                title="Contact form submission target"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer Shell -->
+    <footer
+      class="bg-surface-container-low w-full py-12 border-t border-outline-variant/10"
+    >
+      <div class="flex flex-col items-center gap-6 max-w-7xl mx-auto px-8">
+        <span class="text-lg font-bold text-on-surface">Humair.</span>
+        <div class="flex gap-8">
+          <a
+            class="font-plus-jakarta text-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="font-plus-jakarta text-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="font-plus-jakarta text-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors"
+            href="#contact"
+            >Contact</a
+          >
+        </div>
+        <p
+          class="font-plus-jakarta text-xs tracking-widest uppercase text-on-surface-variant opacity-80"
+        >
+          © 2024 Muhammad Humair. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var themeToggles = document.querySelectorAll("[data-theme-toggle]");
+        var themeIcons = document.querySelectorAll("[data-theme-icon]");
+        var mobileMenu = document.getElementById("mobile-menu");
+        var mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+        var mobileMenuIcon = document.getElementById("mobile-menu-icon");
+        var mobileMenuLinks = document.querySelectorAll("[data-mobile-link]");
+        var skillCarousels = document.querySelectorAll("[data-skill-carousel]");
+        var contactForm = document.querySelector("[data-contact-form]");
+        var contactSubmitButton = document.querySelector("[data-contact-submit]");
+        var contactSuccessMessage = document.querySelector("[data-contact-success]");
+        var contactFormTarget = document.querySelector(
+          'iframe[name="contact-form-target"]',
+        );
+        var isSubmittingContactForm = false;
+
+        function persistTheme(theme) {
+          try {
+            localStorage.setItem("portfolio-theme", theme);
+          } catch (error) {}
+        }
+
+        function setMenuState(isOpen) {
+          if (!mobileMenu || !mobileMenuToggle || !mobileMenuIcon) {
+            return;
+          }
+
+          mobileMenu.classList.toggle("hidden", !isOpen);
+          mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+          mobileMenuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu",
+          );
+          mobileMenuIcon.textContent = isOpen ? "close" : "menu";
+        }
+
+        function setTheme(theme) {
+          var isLightTheme = theme === "light";
+
+          root.classList.remove("dark", "light");
+          root.classList.add(theme);
+          persistTheme(theme);
+
+          themeToggles.forEach(function (toggle) {
+            toggle.setAttribute("aria-pressed", String(isLightTheme));
+            toggle.setAttribute(
+              "aria-label",
+              isLightTheme ? "Switch to dark mode" : "Switch to light mode",
+            );
+          });
+
+          themeIcons.forEach(function (icon) {
+            icon.textContent = isLightTheme ? "light_mode" : "dark_mode";
+          });
+        }
+
+        function getSkillCarouselState(carousel) {
+          var track = carousel.querySelector("[data-skill-track]");
+          var viewport = carousel.querySelector("[data-skill-viewport]");
+          var slides = carousel.querySelectorAll("[data-skill-slide]");
+          var firstSlide = slides[0];
+          var visibleCount = 1;
+
+          if (viewport && firstSlide) {
+            visibleCount = Math.max(
+              1,
+              Math.round(
+                viewport.clientWidth / firstSlide.getBoundingClientRect().width,
+              ),
+            );
+          }
+
+          return {
+            track: track,
+            slides: slides,
+            visibleCount: visibleCount,
+            maxIndex: Math.max(0, slides.length - visibleCount),
+          };
+        }
+
+        function updateSkillCarousel(carousel) {
+          var state = getSkillCarouselState(carousel);
+          var currentIndex = Number(
+            carousel.getAttribute("data-skill-index") || 0,
+          );
+          var nextIndex = Math.min(currentIndex, state.maxIndex);
+
+          carousel.setAttribute("data-skill-index", String(nextIndex));
+
+          if (state.track && state.slides[nextIndex]) {
+            state.track.style.transform =
+              "translateX(-" + state.slides[nextIndex].offsetLeft + "px)";
+          }
+        }
+
+        function moveSkillCarousel(carousel, direction) {
+          var state = getSkillCarouselState(carousel);
+          var currentIndex = Number(
+            carousel.getAttribute("data-skill-index") || 0,
+          );
+
+          if (state.maxIndex === 0) {
+            carousel.setAttribute("data-skill-index", "0");
+            updateSkillCarousel(carousel);
+            return;
+          }
+
+          currentIndex = currentIndex + direction;
+
+          if (currentIndex < 0) {
+            currentIndex = state.maxIndex;
+          }
+
+          if (currentIndex > state.maxIndex) {
+            currentIndex = 0;
+          }
+
+          carousel.setAttribute("data-skill-index", String(currentIndex));
+          updateSkillCarousel(carousel);
+        }
+
+        setTheme(root.classList.contains("light") ? "light" : "dark");
+        setMenuState(false);
+
+        themeToggles.forEach(function (toggle) {
+          toggle.addEventListener("click", function () {
+            setTheme(root.classList.contains("light") ? "dark" : "light");
+          });
+        });
+
+        if (mobileMenuToggle) {
+          mobileMenuToggle.addEventListener("click", function () {
+            setMenuState(mobileMenu.classList.contains("hidden"));
+          });
+        }
+
+        skillCarousels.forEach(function (carousel) {
+          var prevButton = carousel.querySelector("[data-skill-prev]");
+          var nextButton = carousel.querySelector("[data-skill-next]");
+
+          updateSkillCarousel(carousel);
+
+          if (prevButton) {
+            prevButton.addEventListener("click", function () {
+              moveSkillCarousel(carousel, -1);
+            });
+          }
+
+          if (nextButton) {
+            nextButton.addEventListener("click", function () {
+              moveSkillCarousel(carousel, 1);
+            });
+          }
+
+          window.setInterval(function () {
+            moveSkillCarousel(carousel, 1);
+          }, 7000);
+        });
+
+        if (contactForm && contactSubmitButton) {
+          contactForm.addEventListener("submit", function () {
+            isSubmittingContactForm = true;
+            contactSubmitButton.textContent = "Sending...";
+            contactSubmitButton.setAttribute("disabled", "disabled");
+
+            if (contactSuccessMessage) {
+              contactSuccessMessage.classList.add("hidden");
+            }
+          });
+        }
+
+        if (contactFormTarget) {
+          contactFormTarget.addEventListener("load", function () {
+            if (!isSubmittingContactForm || !contactForm || !contactSubmitButton) {
+              return;
+            }
+
+            isSubmittingContactForm = false;
+            contactForm.reset();
+            contactSubmitButton.textContent = "Send Message";
+            contactSubmitButton.removeAttribute("disabled");
+
+            if (contactSuccessMessage) {
+              contactSuccessMessage.classList.remove("hidden");
+            }
+          });
+        }
+
+        mobileMenuLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            setMenuState(false);
+          });
+        });
+
+        window.addEventListener("resize", function () {
+          skillCarousels.forEach(function (carousel) {
+            updateSkillCarousel(carousel);
+          });
+
+          if (window.innerWidth >= 768) {
+            setMenuState(false);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
