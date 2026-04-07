@@ -4,14 +4,15 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Muhammad Humair | Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Muhammad Humair Nasir — Full-Stack Developer specializing in MERN, Next.js, PostgreSQL &amp; Firebase. Based in Lahore, Pakistan. View my projects and get in touch."
+    />
+    <meta name="author" content="Muhammad Humair Nasir" />
+    <title>Muhammad Humair Nasir | Full-Stack Developer</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -41,12 +42,12 @@
       }
       html.light {
         color-scheme: light;
-        --background: 244 247 252;
+        --background: 228 237 252;
         --surface-container-lowest: 255 255 255;
-        --surface-container-low: 255 255 255;
-        --surface-container: 247 249 252;
-        --surface-container-high: 237 242 249;
-        --surface-container-highest: 226 233 244;
+        --surface-container-low: 246 250 255;
+        --surface-container: 236 244 255;
+        --surface-container-high: 222 234 252;
+        --surface-container-highest: 206 222 248;
         --primary: 29 78 216;
         --primary-dim: 30 64 175;
         --secondary: 99 102 241;
@@ -54,8 +55,8 @@
         --on-primary: 255 255 255;
         --on-secondary: 255 255 255;
         --on-surface: 15 23 42;
-        --on-surface-variant: 71 85 105;
-        --outline-variant: 203 213 225;
+        --on-surface-variant: 55 70 100;
+        --outline-variant: 186 204 232;
       }
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
@@ -128,6 +129,34 @@
       }
       .skill-carousel-track {
         transition: transform 700ms ease;
+      }
+      /* Scroll-reveal animation */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      [data-reveal].revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      [data-reveal-delay="1"] {
+        transition-delay: 0.12s;
+      }
+      [data-reveal-delay="2"] {
+        transition-delay: 0.24s;
+      }
+      [data-reveal-delay="3"] {
+        transition-delay: 0.36s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
       }
     </style>
     <script>
@@ -360,7 +389,7 @@
     <main>
       <!-- Hero Section -->
       <section
-        class="relative min-h-[760px] md:min-h-[820px] flex items-center pt-10 px-8 overflow-hidden scroll-mt-24"
+        class="relative min-h-[640px] md:min-h-[720px] flex items-center pt-4 px-8 overflow-hidden scroll-mt-24"
         id="home"
       >
         <!-- Decorative Architectural Background Elements -->
@@ -378,7 +407,7 @@
               class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-low rounded-full border border-outline-variant/15"
             >
               <span
-                class="w-2 h-2 rounded-full bg-tertiary animate-pulse"
+                class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
               ></span>
               <span
                 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
@@ -439,7 +468,7 @@
                 >
                   <img
                     alt="Muhammad Humair Nasir"
-                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    class="w-full h-full object-cover transition-all duration-700"
                     data-alt="Portrait of Muhammad Humair Nasir"
                     src="assets/Humair.jpg"
                   />
@@ -470,7 +499,7 @@
         id="about"
       >
         <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-16" data-reveal>
             <div class="lg:col-span-1 space-y-6">
               <h2
                 class="text-sm font-bold uppercase tracking-widest text-primary flex items-center gap-3"
@@ -491,17 +520,55 @@
                 >
               </div>
             </div>
-            <div class="lg:col-span-2 space-y-8">
-              <p
-                class="text-xl text-on-surface-variant leading-relaxed font-light"
-              >
-                I'm a full-stack developer focused on building scalable,
-                user-centric web applications. I follow a "Blueprint"
-                approach-designing architecture and user experience before
-                writing code to create clean, maintainable solutions. I enjoy
-                combining strong backend systems with polished interfaces to
-                solve real-world problems.
+            <div class="lg:col-span-2 space-y-6">
+              <!-- Bio -->
+              <p class="text-lg text-on-surface-variant leading-relaxed">
+                I'm a full-stack developer passionate about building scalable,
+                user-centric web applications from the ground up. I follow a
+                <strong class="text-on-surface font-semibold"
+                  >"Blueprint" approach</strong
+                >
+                &mdash; mapping out architecture and user experience before a
+                single line of code is written, so every project is clean,
+                purposeful, and maintainable.
               </p>
+              <p class="text-base text-on-surface-variant leading-relaxed">
+                I thrive at the intersection of strong backend logic and
+                polished front-end craft. Whether it's designing a PostgreSQL
+                schema, wiring a REST API, or finessing a responsive UI in
+                Next.js &mdash; I enjoy owning the full stack and shipping
+                products that actually work.
+              </p>
+              <!-- Stats strip -->
+              <div
+                class="grid grid-cols-3 gap-4 py-6 border-y border-outline-variant/15"
+              >
+                <div class="text-center">
+                  <p class="text-3xl font-extrabold text-primary">3+</p>
+                  <p
+                    class="text-xs text-on-surface-variant font-semibold uppercase tracking-widest mt-1"
+                  >
+                    Live Projects
+                  </p>
+                </div>
+                <div class="text-center border-x border-outline-variant/15">
+                  <p class="text-3xl font-extrabold text-secondary">10+</p>
+                  <p
+                    class="text-xs text-on-surface-variant font-semibold uppercase tracking-widest mt-1"
+                  >
+                    Technologies
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="text-3xl font-extrabold text-tertiary">1+</p>
+                  <p
+                    class="text-xs text-on-surface-variant font-semibold uppercase tracking-widest mt-1"
+                  >
+                    Years Building
+                  </p>
+                </div>
+              </div>
+              <!-- Info cards -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div
                   class="p-6 bg-surface-container-low rounded-xl hover:bg-surface-container-high transition-colors group"
@@ -510,9 +577,13 @@
                     class="material-symbols-outlined text-3xl text-primary mb-4 block group-hover:scale-110 transition-transform"
                     >school</span
                   >
-                  <h4 class="text-lg font-bold mb-2">Education</h4>
-                  <p class="text-sm text-on-surface-variant">
-                    BS in Computer Science<br />University Of Education, Lahore
+                  <h4 class="text-lg font-bold mb-1">Education</h4>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">
+                    BS in Computer Science<br />
+                    University of Education, Lahore<br />
+                    <span class="text-xs text-primary font-semibold"
+                      >2021 &ndash; 2025</span
+                    >
                   </p>
                 </div>
                 <div
@@ -522,10 +593,44 @@
                     class="material-symbols-outlined text-3xl text-secondary mb-4 block group-hover:scale-110 transition-transform"
                     >workspace_premium</span
                   >
-                  <h4 class="text-lg font-bold mb-2">Experience</h4>
-                  <p class="text-sm text-on-surface-variant">
-                    Full-Stack Developer<br />1+ Years
+                  <h4 class="text-lg font-bold mb-1">Experience</h4>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">
+                    Full-Stack Developer<br />
+                    Freelance &amp; Personal Projects<br />
+                    <span class="text-xs text-secondary font-semibold"
+                      >1+ Years</span
+                    >
                   </p>
+                </div>
+              </div>
+              <!-- Specialization list -->
+              <div class="space-y-3">
+                <p
+                  class="text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                >
+                  What I Focus On
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/20"
+                    >Full-Stack Web Apps</span
+                  >
+                  <span
+                    class="px-3 py-1.5 bg-secondary/10 text-secondary text-xs font-semibold rounded-full border border-secondary/20"
+                    >REST API Design</span
+                  >
+                  <span
+                    class="px-3 py-1.5 bg-tertiary/10 text-tertiary text-xs font-semibold rounded-full border border-tertiary/20"
+                    >Database Architecture</span
+                  >
+                  <span
+                    class="px-3 py-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/20"
+                    >UI/UX Polish</span
+                  >
+                  <span
+                    class="px-3 py-1.5 bg-secondary/10 text-secondary text-xs font-semibold rounded-full border border-secondary/20"
+                    >Performance Optimization</span
+                  >
                 </div>
               </div>
             </div>
@@ -554,7 +659,7 @@
           </div>
           <!-- Skill Categories -->
           <div class="space-y-14">
-            <div class="space-y-8" data-skill-carousel>
+            <div class="space-y-8" data-reveal data-skill-carousel>
               <span
                 class="text-sm md:text-lg font-semibold uppercase tracking-[0.28em] md:tracking-[0.34em] text-on-surface-variant/70 block text-center"
                 >Frontend Development</span
@@ -759,7 +864,7 @@
                 </button>
               </div>
             </div>
-            <div class="space-y-8" data-skill-carousel>
+            <div class="space-y-8" data-reveal data-skill-carousel>
               <span
                 class="text-sm md:text-lg font-semibold uppercase tracking-[0.28em] md:tracking-[0.34em] text-on-surface-variant/70 block text-center"
                 >Backend &amp; Cloud</span
@@ -964,6 +1069,50 @@
                 </button>
               </div>
             </div>
+            <!-- Tools & DevOps -->
+            <div class="space-y-8 pt-4" data-reveal>
+              <span
+                class="text-sm md:text-lg font-semibold uppercase tracking-[0.28em] md:tracking-[0.34em] text-on-surface-variant/70 block text-center"
+                >Tools &amp; DevOps</span
+              >
+              <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto">
+                <!-- Git -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 text-[#F05032] fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.546 10.93 13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 1 1-1.102 1.036l-2.48-2.48v6.522a1.838 1.838 0 1 1-1.511-.036V9.336a1.835 1.835 0 0 1-.997-2.41L7.628 4.28 1.058 10.85a1.55 1.55 0 0 0 0 2.187l10.478 10.478a1.55 1.55 0 0 0 2.188 0l9.822-9.823a1.55 1.55 0 0 0 0-2.187"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Git</span>
+                </div>
+                <!-- GitHub -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 fill-current shrink-0 text-on-surface" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.863 10.918c.575.106.784-.25.784-.556 0-.274-.01-1-.016-1.962-3.2.696-3.876-1.542-3.876-1.542-.523-1.327-1.278-1.68-1.278-1.68-1.044-.714.08-.7.08-.7 1.154.082 1.76 1.185 1.76 1.185 1.026 1.758 2.693 1.25 3.35.956.103-.743.401-1.25.73-1.537-2.554-.29-5.238-1.277-5.238-5.686 0-1.256.45-2.283 1.184-3.088-.118-.29-.513-1.456.112-3.036 0 0 .967-.31 3.168 1.18A10.97 10.97 0 0 1 12 6.03a10.97 10.97 0 0 1 2.886.388c2.2-1.49 3.165-1.18 3.165-1.18.627 1.58.232 2.746.114 3.036.737.805 1.182 1.832 1.182 3.088 0 4.42-2.688 5.392-5.25 5.676.412.355.78 1.055.78 2.126 0 1.535-.014 2.773-.014 3.15 0 .308.206.667.79.554A11.5 11.5 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">GitHub</span>
+                </div>
+                <!-- Vercel -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 fill-current shrink-0 text-on-surface" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 22.525H0l12-21.05z"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Vercel</span>
+                </div>
+                <!-- Netlify -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 fill-current shrink-0 text-[#00C7B7]" viewBox="0 0 24 24" aria-hidden="true"><path d="m13.258 0-1.252 1.252.816 1.748L14.51 1.252zm-4.77 1.706L5.09 5.104l.96.96h2.464l.79-2.076zm7.924.278-.963.963.49 2.157H18.4zm-10.496 4.63L4.13 7.4l1.26 1.26.96-.96zm13.068.246L18.4 7.956v1.356l1.25-1.25zm-15.47 2.05L2.26 9.66v2.416l1.254-1.254zm17.866.268-1.252 1.252.96.96h1.408l1.254-1.254zM.5 12.077v1.768h1.77zm21.23.002v1.768H23.5v-1.768zm-15.51 1.24-1.32 1.318H2.26l1.254 1.254 1.32-1.32h2.458zM17.78 13.32v1.32l1.456 1.456 1.252-1.252-1.456-1.456zm-5.78.77-1.252 1.252 1.252 1.25 1.252-1.25zm0 3.504L10.748 18.4H8.284l-.96.96 3.398 3.398 1.252-1.252zm4.51-.25-1.32 1.32v2.462l.96.96 3.396-3.396-.96-.96zm-7.922 3.312L7.324 22l.958.96 1.254-1.254zm10.574.268-1.25 1.252 1.252 1.25.96-.96zm-8.312 1.828L9.598 23.75l1.252 1.25 1.252-1.25z"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Netlify</span>
+                </div>
+                <!-- Postman -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 fill-current shrink-0 text-[#FF6C37]" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.527.099C6.955-.744.595 3.07.049 9.786c-.544 6.715 4.801 12.517 11.449 12.832l.006.001c.5.017 1.042-.03 1.57-.135l-.063.01C20.038 21.16 24.586 15.406 23.992 8.7 23.396 1.97 18.035-.676 13.527.099zm3.786 8.719c-.08 1.238-.85 2.186-1.718 2.122-.867-.064-1.504-1.112-1.424-2.35.08-1.238.85-2.186 1.718-2.122.867.064 1.505 1.112 1.424 2.35zM8.66 8.449c.08 1.238-.557 2.286-1.424 2.35-.867.064-1.638-.884-1.718-2.122-.08-1.238.557-2.286 1.424-2.35.868-.064 1.638.884 1.718 2.122zm3.34 9.632c-3.562 0-6.449-2.887-6.449-6.449h12.898c0 3.562-2.887 6.449-6.449 6.449z"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Postman</span>
+                </div>
+                <!-- VS Code -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 fill-current shrink-0 text-[#007ACC]" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.15 2.587 18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">VS Code</span>
+                </div>
+                <!-- Figma -->
+                <div class="flex items-center gap-2.5 px-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/15 hover:border-primary/30 hover:bg-surface-container-high transition-all group">
+                  <svg class="w-5 h-5 fill-current shrink-0 text-[#F24E1E]" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117zm-4.588 0H5.03c-1.665 0-3.019-1.355-3.019-3.019s1.354-3.019 3.019-3.019h3.117zm0-1.471H5.03c-.855 0-1.548.694-1.548 1.548s.694 1.548 1.548 1.548h3.117zM4.49 17.952c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h3.117v8.98zm0-1.471c1.665 0 3.019-1.354 3.019-3.019v-4.49H4.49c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019zm7.607 6.029c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49 4.49 2.014 4.49 4.49-2.014 4.49-4.49 4.49zm0-7.51c-1.665 0-3.019 1.354-3.019 3.019s1.354 3.019 3.019 3.019c1.664 0 3.019-1.354 3.019-3.019s-1.355-3.019-3.019-3.019zm3.117-6.029h3.117c1.665 0 3.019 1.354 3.019 3.019s-1.354 3.019-3.019 3.019h-3.117zm0 1.471v4.49c0 .855.694 1.548 1.548 1.548h1.569c1.665 0 3.019-1.354 3.019-3.019s-1.354-3.019-3.019-3.019z"/></svg>
+                  <span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Figma</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -983,7 +1132,10 @@
               <h3 class="text-4xl font-bold text-on-surface">Selected Works</h3>
             </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            data-reveal
+          >
             <div
               class="group relative bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300"
             >
@@ -1004,7 +1156,26 @@
                   Schedule and send Slack reminders automatically with a clean
                   web workflow built for teams and recurring follow-ups.
                 </p>
-                <div class="pt-4 flex items-center justify-between">
+                <!-- Tech stack -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full"
+                    >Next.js</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-secondary/10 text-secondary rounded-full"
+                    >Slack API</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-tertiary/10 text-tertiary rounded-full"
+                    >Vercel</span
+                  >
+                </div>
+                <div class="pt-3 flex items-center justify-between">
                   <a
                     class="text-primary text-sm font-bold inline-flex items-center gap-2 group-hover:underline"
                     href="https://slack-reminder-nextjs.vercel.app/"
@@ -1015,6 +1186,23 @@
                     <span class="material-symbols-outlined text-sm"
                       >open_in_new</span
                     >
+                  </a>
+                  <a
+                    class="text-on-surface-variant text-sm font-semibold inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                    href="https://github.com/Humair-Nasir/slack-reminder-nextjs"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <svg
+                      class="w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.863 10.918c.575.106.784-.25.784-.556 0-.274-.01-1-.016-1.962-3.2.696-3.876-1.542-3.876-1.542-.523-1.327-1.278-1.68-1.278-1.68-1.044-.714.08-.7.08-.7 1.154.082 1.76 1.185 1.76 1.185 1.026 1.758 2.693 1.25 3.35.956.103-.743.401-1.25.73-1.537-2.554-.29-5.238-1.277-5.238-5.686 0-1.256.45-2.283 1.184-3.088-.118-.29-.513-1.456.112-3.036 0 0 .967-.31 3.168 1.18A10.97 10.97 0 0 1 12 6.03a10.97 10.97 0 0 1 2.886.388c2.2-1.49 3.165-1.18 3.165-1.18.627 1.58.232 2.746.114 3.036.737.805 1.182 1.832 1.182 3.088 0 4.42-2.688 5.392-5.25 5.676.412.355.78 1.055.78 2.126 0 1.535-.014 2.773-.014 3.15 0 .308.206.667.79.554A11.5 11.5 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z"
+                      />
+                    </svg>
+                    GitHub
                   </a>
                 </div>
               </div>
@@ -1039,7 +1227,22 @@
                   JavaScript image search app using the Unsplash API to fetch,
                   parse, and display results from keyword-based searches.
                 </p>
-                <div class="pt-4 flex items-center justify-between">
+                <!-- Tech stack -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full"
+                    >JavaScript</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-secondary/10 text-secondary rounded-full"
+                    >Unsplash API</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-tertiary/10 text-tertiary rounded-full"
+                    >HTML/CSS</span
+                  >
+                </div>
+                <div class="pt-3 flex items-center justify-between">
                   <a
                     class="text-primary text-sm font-bold inline-flex items-center gap-2 group-hover:underline"
                     href="https://humair-nasir.github.io/Image-Search-App/"
@@ -1050,6 +1253,23 @@
                     <span class="material-symbols-outlined text-sm"
                       >open_in_new</span
                     >
+                  </a>
+                  <a
+                    class="text-on-surface-variant text-sm font-semibold inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                    href="https://github.com/Humair-Nasir/Image-Search-App"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <svg
+                      class="w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.863 10.918c.575.106.784-.25.784-.556 0-.274-.01-1-.016-1.962-3.2.696-3.876-1.542-3.876-1.542-.523-1.327-1.278-1.68-1.278-1.68-1.044-.714.08-.7.08-.7 1.154.082 1.76 1.185 1.76 1.185 1.026 1.758 2.693 1.25 3.35.956.103-.743.401-1.25.73-1.537-2.554-.29-5.238-1.277-5.238-5.686 0-1.256.45-2.283 1.184-3.088-.118-.29-.513-1.456.112-3.036 0 0 .967-.31 3.168 1.18A10.97 10.97 0 0 1 12 6.03a10.97 10.97 0 0 1 2.886.388c2.2-1.49 3.165-1.18 3.165-1.18.627 1.58.232 2.746.114 3.036.737.805 1.182 1.832 1.182 3.088 0 4.42-2.688 5.392-5.25 5.676.412.355.78 1.055.78 2.126 0 1.535-.014 2.773-.014 3.15 0 .308.206.667.79.554A11.5 11.5 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z"
+                      />
+                    </svg>
+                    GitHub
                   </a>
                 </div>
               </div>
@@ -1074,7 +1294,22 @@
                   Fast JavaScript search interface for browsing product data
                   with dynamic filtering and responsive result updates.
                 </p>
-                <div class="pt-4 flex items-center justify-between">
+                <!-- Tech stack -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full"
+                    >JavaScript</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-secondary/10 text-secondary rounded-full"
+                    >REST API</span
+                  >
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold bg-tertiary/10 text-tertiary rounded-full"
+                    >HTML/CSS</span
+                  >
+                </div>
+                <div class="pt-3 flex items-center justify-between">
                   <a
                     class="text-primary text-sm font-bold inline-flex items-center gap-2 group-hover:underline"
                     href="https://humair-nasir.github.io/Product-Search-Bar/"
@@ -1086,6 +1321,23 @@
                       >open_in_new</span
                     >
                   </a>
+                  <a
+                    class="text-on-surface-variant text-sm font-semibold inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                    href="https://github.com/Humair-Nasir/Product-Search-Bar"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <svg
+                      class="w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.863 10.918c.575.106.784-.25.784-.556 0-.274-.01-1-.016-1.962-3.2.696-3.876-1.542-3.876-1.542-.523-1.327-1.278-1.68-1.278-1.68-1.044-.714.08-.7.08-.7 1.154.082 1.76 1.185 1.76 1.185 1.026 1.758 2.693 1.25 3.35.956.103-.743.401-1.25.73-1.537-2.554-.29-5.238-1.277-5.238-5.686 0-1.256.45-2.283 1.184-3.088-.118-.29-.513-1.456.112-3.036 0 0 .967-.31 3.168 1.18A10.97 10.97 0 0 1 12 6.03a10.97 10.97 0 0 1 2.886.388c2.2-1.49 3.165-1.18 3.165-1.18.627 1.58.232 2.746.114 3.036.737.805 1.182 1.832 1.182 3.088 0 4.42-2.688 5.392-5.25 5.676.412.355.78 1.055.78 2.126 0 1.535-.014 2.773-.014 3.15 0 .308.206.667.79.554A11.5 11.5 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
                 </div>
               </div>
             </div>
@@ -1095,7 +1347,7 @@
       <!-- Contact Section -->
       <section class="pt-10 pb-16 px-8 scroll-mt-24" id="contact">
         <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16" data-reveal>
             <div class="space-y-8">
               <div class="space-y-4">
                 <h2
@@ -1163,18 +1415,19 @@
                   </div>
                 </div>
               </div>
-              <!-- Map -->
+              <!-- Map (English, Google Maps) -->
               <div
-                class="w-full h-48 rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/10"
+                class="w-full h-48 rounded-xl overflow-hidden border border-outline-variant/10"
               >
-                <div
-                  class="w-full h-full grayscale opacity-50 contrast-125"
-                  data-alt="Stylized dark minimalist city map of Lahore showing urban grid lines with primary blue accents"
-                  data-location="Lahore"
-                  style="
-                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB8Rke_uDpNXPmwCBOzTW8RexUJquS4r8-WvYDlXY_nnYveUrvfQk7ntAtpa_rsACcxPwvILLsf48v2R6n6dz-1cAuL3n5V34H295rAevnpUacZbaGvw6pXD__co1kEEglP4vVp38T7smsorNTrfvPpdQLONU5p97aQQMbOBgq1WwmOkbUBB8dOp1BV21PDSssRFzQbFMNogQbXuBaXq0hC3jgZJvTg3HdhkpnxyPiAacnb7sFUzP4kVwdsryhmvzEqkRZROd_zoy05&quot;);
-                  "
-                ></div>
+                <iframe
+                  src="https://maps.google.com/maps?q=Lahore,+Pakistan&amp;hl=en&amp;z=12&amp;output=embed"
+                  width="100%"
+                  height="100%"
+                  style="border: 0; filter: grayscale(0.2) opacity(0.85)"
+                  allowfullscreen=""
+                  loading="lazy"
+                  title="Lahore, Pakistan — Muhammad Humair Nasir location"
+                ></iframe>
               </div>
             </div>
             <div
@@ -1330,7 +1583,7 @@
         <p
           class="text-center font-plus-jakarta text-xs tracking-[0.28em] uppercase text-on-surface-variant opacity-80"
         >
-          © 2026 Muhammad Humair. All rights reserved.
+          © 2026 Muhammad Humair Nasir. All rights reserved.
         </p>
       </div>
     </footer>
@@ -1532,7 +1785,13 @@
           var prevButton = carousel.querySelector("[data-skill-prev]");
           var nextButton = carousel.querySelector("[data-skill-next]");
 
-          updateSkillCarousel(carousel);
+          // Double rAF: first rAF queues after paint, second fires after
+          // layout is fully settled — prevents the half-circle flash on load.
+          window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () {
+              updateSkillCarousel(carousel);
+            });
+          });
 
           if (prevButton) {
             prevButton.addEventListener("click", function () {
@@ -1620,6 +1879,13 @@
           updateActiveNavLink();
         });
 
+        // Safety net: re-measure after fonts/images fully load
+        window.addEventListener("load", function () {
+          skillCarousels.forEach(function (carousel) {
+            updateSkillCarousel(carousel);
+          });
+        });
+
         window.addEventListener("scroll", updateScrollTopButton, {
           passive: true,
         });
@@ -1628,6 +1894,29 @@
         });
         window.addEventListener("hashchange", updateActiveNavLink);
         updateScrollTopButton();
+
+        // Scroll-reveal animations
+        var revealEls = document.querySelectorAll("[data-reveal]");
+        if (revealEls.length && "IntersectionObserver" in window) {
+          var revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("revealed");
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.08, rootMargin: "0px 0px -48px 0px" },
+          );
+          revealEls.forEach(function (el) {
+            revealObserver.observe(el);
+          });
+        } else {
+          revealEls.forEach(function (el) {
+            el.classList.add("revealed");
+          });
+        }
       })();
     </script>
   </body>
